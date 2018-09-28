@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-process.title = 'xu';
+process.title = 'dms';
 
 require('commander')
 .version(require('../package').version)
@@ -9,4 +9,4 @@ require('commander')
 .parse(process.argv)
 
 
-require('./xu-generate');
+require('./dms-generate');

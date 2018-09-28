@@ -1,5 +1,5 @@
 {
-    "name": "vue-xu-generate",
+    "name": "vue-dms-generate",
     "version": "1.2.0",
     "description": "A plugin for quick generate",
     "main": "index.js",
@@ -7,14 +7,14 @@
         "lib": "lib"
     },
     "bin": {
-        "xu": "./bin/xu.js"
+        "dms": "./bin/dms.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/xu455255849/vue-xu-generate.git"
+        "url": ""
     },
     "keywords": [
         "vue",
@@ -26,11 +26,12 @@
     "author": "xsp",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/xu455255849/vue-xu-generate/issues"
+        "url": ""
     },
-    "homepage": "https://github.com/xu455255849/vue-xu-generate#readme",
+    "homepage": "",
     "dependencies": {
         "chalk": "^2.4.1",
+        "coffee": "^5.1.0",
         "commander": "^2.11.0",
         "fs-extra": "^4.0.3"
     }

@@ -2,7 +2,7 @@
 
 const program = require('commander');
 const chalk = require('chalk')
-const xu = require('../src/generate');
+const dms = require('../src/generate');
 
 
 /**
@@ -14,6 +14,6 @@ program
 .description('quick generate your file')
 .alias('g')
 .action(function(type, name){
-    xu.run(type, name);
+    dms.run(type, name);
 });
 program.parse(process.argv);
