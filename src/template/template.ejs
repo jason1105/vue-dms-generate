@@ -1,0 +1,21 @@
+<el-form>
+<% form.forEach(function(obj){ %>
+    <el-form-item class="formItem" label="<%= obj.disp%>" prop="<%= obj.name%>">
+        <% if ("input" == obj.type) {%>
+            <el-input class="formInput" size="small" v-model="form.<%= obj.name%>" :disabled="disabled"></el-input>
+        <% } else if ("radio" == obj.type) { %>
+            <% for (let i = 0; i < obj.number; i++) { %>
+                <el-radio v-model="<%= obj.name%>" value="<%= i%>" label="<%= i%>">radio value</el-radio>
+            <% }%>
+        <% } else if ("checkbox" == obj.type) { %>
+            <el-checkbox v-model="<%= obj.name%>" true-label="1" size="small" label="<%= obj.disp%>"></el-checkbox>
+        <% }%>
+    </el-form-item>
+<% }); %>
+</el-form>
+<el-table>
+    <% form.forEach(function(obj){ %>
+    <el-table-column header-align="center" prop="<%= obj.name%>" width="110" align="center" label="<%= obj.disp%>"> </el-table-column>
+    <% }); %>
+</el-table>
+
