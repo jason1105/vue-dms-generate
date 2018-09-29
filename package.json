@@ -1,5 +1,5 @@
 {
-    "name": "vue-dms-generate",
+    "name": "vue-dms-generator",
     "version": "0.0.1",
     "description": "A plugin for quick generate",
     "main": "index.js",
