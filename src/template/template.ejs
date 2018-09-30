@@ -1,21 +1,21 @@
 <el-form>
-<% form.forEach(function(obj){ %>
+<%_ form.forEach(function(obj){ _%>
     <el-form-item class="formItem" label="<%= obj.disp%>" prop="<%= obj.name%>">
-        <% if ("input" == obj.type) {%>
-            <el-input class="formInput" size="small" v-model="form.<%= obj.name%>" :disabled="disabled"></el-input>
-        <% } else if ("radio" == obj.type) { %>
-            <% for (let i = 0; i < obj.number; i++) { %>
+        <%_ if ("input" == obj.type) { _%>
+            <el-input class="formInput" size="small" v-model="form.<%= obj.name%>"></el-input>
+        <%_ } else if ("radio" == obj.type) { _%>
+            <%_ for (let i = 0; i < obj.number; i++) { _%>
                 <el-radio v-model="<%= obj.name%>" value="<%= i%>" label="<%= i%>">radio value</el-radio>
-            <% }%>
-        <% } else if ("checkbox" == obj.type) { %>
+            <%_ } _%>
+        <%_ } else if ("checkbox" == obj.type) { _%>
             <el-checkbox v-model="<%= obj.name%>" true-label="1" size="small" label="<%= obj.disp%>"></el-checkbox>
-        <% }%>
+        <%_ } _%>
     </el-form-item>
-<% }); %>
+<%_ }); _%>
 </el-form>
 <el-table>
-    <% form.forEach(function(obj){ %>
+    <%_ form.forEach(function(obj){ _%>
     <el-table-column header-align="center" prop="<%= obj.name%>" width="110" align="center" label="<%= obj.disp%>"> </el-table-column>
-    <% }); %>
+    <%_ }); _%>
 </el-table>
 

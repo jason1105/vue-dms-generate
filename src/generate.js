@@ -4,51 +4,55 @@
 
 const fs = require('fs');
 const chalk = require('chalk');
-const ejs = require('ejs')
+const ejs = require('ejs');
+const utils = require('./Utils');
+const defaultOut = './output.vue';
+const program = require('commander');
 
-exports.run = function(args, name) {
+exports.run = function (args) {
 
-    let dataFilePath = findInputData(args);
+    utils.fixPath(args, function(err, templatePath){
 
-    // console.log("args:", args);
-    // console.log("file:", dataFilePath);
-
-    if (!dataFilePath) {
-        console.error('File not found: ', args);
-        return;
-    }
-
-    ejs.renderFile('./src/template/template.ejs', JSON.parse(fs.readFileSync(dataFilePath, {})), {}, function(err, str){
+        // console.log(args);
 
         if (err) {
-            console.error(err);
+
+            console.log(chalk.red(err));
         } else {
-            console.log(str);
-            fs.writeFile(process.cwd() + "/output.vue", str, {}, function(err){
+
+            ejs.renderFile('./src/template/template.ejs', JSON.parse(fs.readFileSync(templatePath, {})), {}, function (err, str) {
+
                 if (err) {
-                    console.error(err);
+
+                    console.error(chalk.red(err));
+                } else {
+
+                    utils.post(str, function (err, string) {
+
+                        if (err) {
+
+                            console.error(chalk.red(err));
+                        } else {
+
+                            let output = program.output || defaultOut;
+
+                            fs.writeFile(output, string, {}, function (err) {
+
+                                if (err) {
+
+                                    console.error(chalk.red(err));
+                                } else {
+
+                                    console.log(chalk.yellow(string));
+                                    console.log(chalk.green('Output: ' + output));
+                                }
+                            });
+                        }
+                    });
                 }
             });
         }
 
+
     });
-
 };
-
-let findInputData = function(args) {
-    if (fs.existsSync(args)) {
-        return args;
-    } else {
-        if (fs.existsSync(process.cwd() + args)) {
-            return process.cwd() + args;
-        } else {
-            return null;
-        }
-    }
-};
-
-
-
-
-
-

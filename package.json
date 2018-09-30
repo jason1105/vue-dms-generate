@@ -1,6 +1,6 @@
 {
     "name": "vue-dms-generator",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "A plugin for quick generate",
     "main": "index.js",
     "directories": {
@@ -39,6 +39,7 @@
     "devDependencies": {
         "ejs": "~2.5.8",
         "fs-extra": "^4.0.3",
-        "fs": "latest"
+        "fs": "latest",
+        "html-format": "~1.0.1"
     }
 }
