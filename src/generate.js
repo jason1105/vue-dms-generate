@@ -8,19 +8,21 @@ const ejs = require('ejs');
 const utils = require('./Utils');
 const defaultOut = './output.vue';
 const program = require('commander');
+const pathUtils = require('path');
 
 exports.run = function (args) {
 
     utils.fixPath(args, function(err, templatePath){
 
         // console.log(args);
+        // console.log("__dirname = %s", __dirname);
 
         if (err) {
 
             console.log(chalk.red(err));
         } else {
 
-            ejs.renderFile('./src/template/template.ejs', JSON.parse(fs.readFileSync(templatePath, {})), {}, function (err, str) {
+            ejs.renderFile(pathUtils.resolve(__dirname + '/template/template.ejs'), JSON.parse(fs.readFileSync(templatePath, {})), {}, function (err, str) {
 
                 if (err) {
 
@@ -52,7 +54,5 @@ exports.run = function (args) {
                 }
             });
         }
-
-
     });
 };
