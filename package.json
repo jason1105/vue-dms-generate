@@ -1,6 +1,6 @@
 {
     "name": "vue-dms-generator",
-    "version": "0.0.6",
+    "version": "0.0.8",
     "description": "A plugin for quick generate",
     "main": "index.js",
     "directories": {
@@ -27,6 +27,9 @@
     "license": "MIT",
     "bugs": {
         "url": ""
+    },
+    "publishConfig": {
+        "registry": "http://nexus3.msp/repository/npmRepositories/"
     },
     "homepage": "",
     "dependencies": {
